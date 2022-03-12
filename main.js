@@ -11,19 +11,30 @@ const boton4 = document.querySelector("#btn4")
 /* const answer = preguntas[0].answers[0]
 console.log(answer); */
 /// Introducir al dom la informacion requerida
-titulo.textContent = preguntas[0].question
-boton1.textContent = preguntas[0].answers[0]
+/* titulo.textContent = preguntas[1].question
+boton1.textContent = preguntas[1].answers[0]
 boton2.textContent = preguntas[1].answers[1]
-boton3.textContent = preguntas[2].answers[2]
-boton4.textContent = preguntas[3].answers[3]
+boton3.textContent = preguntas[1].answers[2]
+boton4.textContent = preguntas[1].answers[3] */ 
 
-
+///Funcion para cambio de preguntas y respuestas
+function vueltas (vuelta){
+for(let i = 0 ; i < vuelta ; i++){
+    titulo.textContent = preguntas[i].question
+boton1.textContent = preguntas[i].answers[0]
+boton2.textContent = preguntas[i].answers[1]
+boton3.textContent = preguntas[i].answers[2]
+boton4.textContent = preguntas[i].answers[3] 
+    console.log(i);
+}}
+vueltas()
+//console.log(preguntas[1].answers[0]);
 /// Darle atributo a los botones
-boton1.setAttribute("name", preguntas[0].answers[0])
+boton1.setAttribute("name", preguntas[1].answers[0])
 boton2.setAttribute("name", preguntas[1].answers[1])
-boton3.setAttribute("name", preguntas[2].answers[2])
-boton4.setAttribute("name", preguntas[3].answers[3])
-console.log(boton1, boton2, boton3, boton4);
+boton3.setAttribute("name", preguntas[1].answers[2])
+boton4.setAttribute("name", preguntas[1].answers[3])
+//console.log(boton1, boton2, boton3, boton4);
 
 //console.log(boton1.hasAttribute("name"))
 
@@ -36,8 +47,9 @@ const botonAtt4 = boton4.getAttribute("name")
 //console.log(botonAtt1);
 
 //// respuesta correcta
-const correcta = preguntas[0].correct
+const correcta = preguntas[1].correct
 //console.log(correcta);
+
 
 /* if(botonAtt1 === correcta){
     console.log(`Correcto ${botonAtt1}`);
@@ -48,13 +60,13 @@ boton1.addEventListener("click", ()=>{if(botonAtt1 === correcta){
     console.log(`Correcto ${botonAtt1}`);
 } else {console.log("incorrecto");}})
 boton2.addEventListener("click", ()=>{if(botonAtt2 === correcta){
-    console.log(`Correcto ${botonAtt1}`);
+    console.log(`Correcto ${botonAtt2}`);
 } else {console.log("incorrecto");}})
 boton3.addEventListener("click", ()=>{if(botonAtt3 === correcta){
-    console.log(`Correcto ${botonAtt1}`);
+    console.log(`Correcto ${botonAtt3}`);
 } else {console.log("incorrecto");}})
 boton4.addEventListener("click", ()=>{if(botonAtt4 === correcta){
-    console.log(`Correcto ${botonAtt1}`);
+    console.log(`Correcto ${botonAtt4}`);
 } else {console.log("incorrecto");}})
 
 ///////////////////////////////////////////////////
