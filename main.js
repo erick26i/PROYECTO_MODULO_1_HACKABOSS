@@ -6,9 +6,11 @@ const boton1 = document.querySelector("#btn1")
 const boton2 = document.querySelector("#btn2")
 const boton3 = document.querySelector("#btn3")
 const boton4 = document.querySelector("#btn4")
+
+//Declaracion de variables globales
 let correcta;
-let contador;
-//let j;
+let contador = 0;
+let j = 0;
 let botonAtt1;
 let botonAtt2;
 let botonAtt3;
@@ -45,44 +47,57 @@ function vueltas (vuelta){
 
 /// funcion para modificar las preguntas
 
-function modPreguntas(){
+function ejecutarVuelta(valor){
+    console.log(`Pregunta Numero: ${valor}`);
+    vueltas(valor+1)
 }
 
-/// Comparacion de respuesta elegida con respuesta correcta
+/// Evento de boton y revision de preguntas
 boton1.addEventListener("click", ()=>{
     if(botonAtt1 === correcta){
-        let j=1;
+        contador++;
         j++;
-        vueltas(j)
-        console.log(j);
-    console.log(`Correcto ${botonAtt1}`);
+        ejecutarVuelta(j)
+        console.log(`Correcto !! Tu puntaje es: ${contador}`);
+        //console.log(`Correcto ${botonAtt1}`);
     
-} else {console.log("incorrecto");}})
+} else {j++;
+    ejecutarVuelta(j)
+    
+    console.log(`Incorrecto, Tu puntaje es: ${contador}`)
+    }})
 
 boton2.addEventListener("click", ()=>{if(botonAtt2 === correcta){
-    let j=1;
+    contador++;
     j++;
-    vueltas(j)
-    console.log(j);
-    console.log(`Correcto ${botonAtt2}`);
-} else {console.log("incorrecto");
+        ejecutarVuelta(j)
+        console.log(`Correcto !! Tu puntaje es: ${contador}`);
+    //console.log(`Correcto ${botonAtt2}`);
+} else { j++; ejecutarVuelta(j)
+    console.log(`Incorrecto, Tu puntaje es: ${contador}`)
+    
 }})
 
 boton3.addEventListener("click", ()=>{if(botonAtt3 === correcta){
-    let j=1;
+    contador++;
     j++;
-    vueltas(j)
-    console.log(j);
-    console.log(`Correcto ${botonAtt3}`);
-} else {console.log("incorrecto");}})
+        ejecutarVuelta(j)
+        console.log(`Correcto!! Tu puntaje es: ${contador}`);
+    //console.log(`Correcto ${botonAtt3}`);
+} else { j++; ejecutarVuelta(j)
+    console.log(`Incorrecto, Tu puntaje es: ${contador}`)
+    
+}})
 
 boton4.addEventListener("click", ()=>{if(botonAtt4 === correcta){
-    let j=1;
+    contador++;
     j++;
-    vueltas(j)
-    console.log(j);
-    console.log(`Correcto ${botonAtt4}`);
-} else {console.log("incorrecto");}})
+        ejecutarVuelta(j)
+        console.log(`Correcto!! Tu puntaje es: ${contador}`);
+    //console.log(`Correcto ${botonAtt4}`);
+} else { j++; ejecutarVuelta(j)
+    console.log(`Incorrecto, Tu puntaje es: ${contador}`)
+    }})
 
 
 ///////////////////////////////////////////////////
