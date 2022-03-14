@@ -7,6 +7,7 @@ const boton2 = document.querySelector("#btn2");
 const boton3 = document.querySelector("#btn3");
 const boton4 = document.querySelector("#btn4");
 const count = document.querySelector(".container_points");
+const btnMode = document.querySelector(".change_dark");
 
 //Declaracion de variables globales
 let correcta;
@@ -41,13 +42,22 @@ function vueltas(vuelta) {
 
     /// Declaramos la respuesta correcta
     correcta = preguntas[i].correct;
+    // Si el valor de la vuelta es mayor que 50
+    // lanzamos un alert para indicar el fin del juego
+    // y ponemos todos los valore a 0
+    if (vuelta > 50) {
+      alert(`Tu puntuación es ${contador} \n Vuelve a jugar de nuevo`);
+      vuelta = 1;
+      j = 0;
+      contador = 0;
+    }
   }
 }
 vueltas(1);
 
 // funcion para imprimir el resultado
 const counterPrint = () => {
-  count.innerHTML = `Tu resultado es ${contador}`;
+  count.innerHTML = `Tu resultado es ${contador}` + " ";
 };
 counterPrint();
 
@@ -63,11 +73,9 @@ boton1.addEventListener("click", () => {
     contador++;
     j++;
     ejecutarVuelta(j);
-    console.log(`Correcto !! Tu puntaje es: ${contador}`);
   } else {
     j++;
     ejecutarVuelta(j);
-    console.log(`Incorrecto, Tu puntaje es: ${contador}`);
   }
   counterPrint();
 });
@@ -77,11 +85,9 @@ boton2.addEventListener("click", () => {
     contador++;
     j++;
     ejecutarVuelta(j);
-    console.log(`Correcto !! Tu puntaje es: ${contador}`);
   } else {
     j++;
     ejecutarVuelta(j);
-    console.log(`Incorrecto, Tu puntaje es: ${contador}`);
   }
   counterPrint();
 });
@@ -91,11 +97,9 @@ boton3.addEventListener("click", () => {
     contador++;
     j++;
     ejecutarVuelta(j);
-    console.log(`Correcto!! Tu puntaje es: ${contador}`);
   } else {
     j++;
     ejecutarVuelta(j);
-    console.log(`Incorrecto, Tu puntaje es: ${contador}`);
   }
   counterPrint();
 });
@@ -105,11 +109,18 @@ boton4.addEventListener("click", () => {
     contador++;
     j++;
     ejecutarVuelta(j);
-    console.log(`Correcto!! Tu puntaje es: ${contador}`);
   } else {
     j++;
     ejecutarVuelta(j);
-    console.log(`Incorrecto, Tu puntaje es: ${contador}`);
   }
   counterPrint();
+});
+
+function changeMode() {
+  const element = document.body;
+  element.classList.toggle("dark-mode");
+}
+
+btnMode.addEventListener("click", () => {
+  changeMode();
 });
