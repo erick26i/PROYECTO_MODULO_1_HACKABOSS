@@ -7,7 +7,7 @@
 }
 
 html {
-  font-family: "Roboto", sans-serif;
+  font-family: sans-serif;
   background: rgb(255, 251, 251);
 }
 
@@ -24,11 +24,13 @@ h1 {
   font-size: 0.7rem;
 }
 
-.dark-mode {
-  background-color: rgb(27, 26, 26);
-  color: white;
+ul {
+  justify-content: center;
+  text-align: center;
 }
-
+li {
+  list-style: none;
+}
 /* MAIN SECTION */
 .container {
   display: flex;
@@ -88,7 +90,7 @@ h1 {
   background: #003ef5;
   width: 800px;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 
@@ -143,7 +145,7 @@ h1 {
     background: #003ef5;
     width: 800px;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 700;
   }
 }

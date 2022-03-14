@@ -7,7 +7,6 @@ const boton2 = document.querySelector("#btn2");
 const boton3 = document.querySelector("#btn3");
 const boton4 = document.querySelector("#btn4");
 const count = document.querySelector(".container_points");
-const btnMode = document.querySelector(".change_dark");
 
 //Declaracion de variables globales
 let correcta;
@@ -56,8 +55,28 @@ function vueltas(vuelta) {
 vueltas(1);
 
 // funcion para imprimir el resultado
+let tiempo = 15;
+const cuentaAtras = () => {
+  const reloj = setInterval(function () {
+    if (tiempo === 0) {
+      clearInterval(reloj);
+      j++;
+      setTimeout(() => {
+        ejecutarVuelta(j);
+        tiempo = 15;
+        cuentaAtras();
+      }, 1000);
+    } else {
+      tiempo--;
+    }
+    counterPrint();
+  }, 1000);
+};
+
+cuentaAtras();
+
 const counterPrint = () => {
-  count.innerHTML = `Tu resultado es ${contador}` + " ";
+  count.innerHTML = `Tu resultado es ${contador} **** Te quedan: ${tiempo} segundos!`;
 };
 counterPrint();
 
@@ -69,6 +88,7 @@ function ejecutarVuelta(valor) {
 
 /// Evento de boton y revision de preguntas
 boton1.addEventListener("click", () => {
+  tiempo = 15;
   if (botonAtt1 === correcta) {
     contador++;
     j++;
@@ -81,6 +101,7 @@ boton1.addEventListener("click", () => {
 });
 
 boton2.addEventListener("click", () => {
+  tiempo = 15;
   if (botonAtt2 === correcta) {
     contador++;
     j++;
@@ -93,6 +114,7 @@ boton2.addEventListener("click", () => {
 });
 
 boton3.addEventListener("click", () => {
+  tiempo = 15;
   if (botonAtt3 === correcta) {
     contador++;
     j++;
@@ -105,6 +127,7 @@ boton3.addEventListener("click", () => {
 });
 
 boton4.addEventListener("click", () => {
+  tiempo = 15;
   if (botonAtt4 === correcta) {
     contador++;
     j++;
@@ -114,13 +137,4 @@ boton4.addEventListener("click", () => {
     ejecutarVuelta(j);
   }
   counterPrint();
-});
-
-function changeMode() {
-  const element = document.body;
-  element.classList.toggle("dark-mode");
-}
-
-btnMode.addEventListener("click", () => {
-  changeMode();
 });
